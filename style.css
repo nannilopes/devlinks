@@ -2,7 +2,7 @@
     --text-color: white; 
     --background-img:url("./assets/bg-desktop.jpg"); 
     --border-color: white; 
-    --surfece-color:rgba(255, 255, 255, 0.1);
+    --surface-color:rgba(255, 255, 255, 0.1);
     --surface-color-hover: white;
     --surfece-color-text-hover: black; 
     --switch-bg-url: url("./assets/MoonStars.svg")
@@ -15,7 +15,7 @@
     --text-color: black; 
     --background-img:url("./assets/bg-desktop-light.jpg"); 
     --border-color: black; 
-    --surfece-color:rgba(0, 0, 0, 0.1);
+    --surface-color:rgba(0, 0, 0, 0.1);
     --surface-color-hover: black;
     --surfece-color-text-hover: white; 
     --switch-bg-url: url("./assets/Sun.svg")
@@ -31,13 +31,15 @@ body{
 
 
 .container{
-    width: 100%; 
-    max-width: 588px;
+     
+    
     padding: 0 24px;
     margin: 0 auto;
     
     
 }
+
+
 
 #profile{
     text-align: center;
@@ -77,7 +79,45 @@ body{
     background-repeat:no-repeat;
     background-position:center; 
 
+    cursor: pointer;
+    position:absolute;
+    top:50%;
+    transform: translateY(-50%);
+    animation: slide-out 0.2s forwards;
+
 }
+
+#switch span {
+    width:64px;
+    height: 24px;
+    border-radius: 999px;
+    border:1px solid var(--border-color);
+    display: block; 
+    background: var(--surface-color);
+  }
+
+    .light #switch button {
+        animation: slide-in 0.2s forwards; 
+
+    }
+    
+
+    @keyframes slide-in{
+        from {
+            left:0;
+        }
+        to{left:50%; 
+        }
+    }
+
+     @keyframes slide-out{
+        from {
+            left:50%;
+        }
+        to{left:0%; 
+        }
+    }
+
 
 .menu ul{
     list-style-type: none;
@@ -85,13 +125,12 @@ body{
 }
 
 .menu ul li{
-    width: 100%;
     
     text-align: center;
-    border: var(--border-color);
+    border:1px solid var(--border-color);
     border-radius: 6px;
     margin: 20px 0;
-    background-color: var(--surfece-color);
+    background-color: var(--surface-color);
     transition: 0.2s ease;
 }
 
@@ -139,3 +178,15 @@ body{
 .social a:hover{
     opacity: 0.5;
 }
+
+    @media (max-width: 1153px){
+        :root{ 
+            --background-img:url("./assets/bg-mobile.jpg");
+
+        }
+        .light{
+            --background-img:url("./assets/bg-mobile-light.jpg");
+
+        }
+
+    }
